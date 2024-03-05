@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        body {
+            display: flex;
+            justify-self: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        button {
+            padding: 12px;
+            margin-bottom: 12px;
+            min-width: 30%;
+            font-size: 20px;
+            font-weight: 600;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1 id="c">Color picker</h1>
+
+    <button title="Red" id="r" style="background: red;">Red</button>
+    <button title="Blue" id="b" style="background: blue;">Blue</button>
+    <button title="Green" id="g" style="background: green;">Green</button>
+    <button title="Yellow" id="y" style="background: yellow;">Yellow</button>
+    <button title="Random Color" id="rd">Random Color</button>
+
+    <script>
+
+        const body = document.getElementsByTagName('body')[0];
+        const red = document.querySelector('#r');
+        const blue = document.querySelector('#b');
+        const green = document.querySelector('#g');
+        const yellow = document.querySelector('#y');
+        const random = document.querySelector('#rd');
+        const c = document.querySelector('#c');
+
+        body.style.background = '#888';
+
+        const setColor = (name) => {
+            body.style.background = name;
+            
+        };
+
+        red.addEventListener("click", () => {
+            setColor('red');
+        })
+        blue.addEventListener("click", () => {
+            setColor('blue');
+        })
+        green.addEventListener("click", () => {
+            setColor('green');
+        })
+        yellow.addEventListener("click", () => {
+            setColor('yellow');
+        })
+     /*   if (body.style.background === 'red') {
+                c.style.color = '#fff';
+            } */
+       
+            const randomColor = () => {
+                const red = Math.round(Math.random() * 255)
+                const green = Math.round(Math.random() * 255)
+                const blue = Math.round(Math.random() * 255)
+                const col = `rgb(${red}, ${green}, ${blue})`;
+                body.style.background = col;
+            };
+
+            random.addEventListener("click", () => {
+                randomColor();
+            });
+
+    </script>
+    
+</body>
+</html>
